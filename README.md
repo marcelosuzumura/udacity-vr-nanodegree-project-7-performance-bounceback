@@ -26,7 +26,7 @@ The steps taken were:
 1. **Physics**: put rigid bodies on moving objects with colliders and marked all moving objects to not static<br />![Physics](Screenshots/03-after-physics.png)
     - It reduced the number of batches, but didn't gain much in FPS
 1. **Objects**: ball pooling<br />![Objects](Screenshots/04-after-object-pooling.png)
-    - I created a fixed number of 200 balls in the start and kept recycling them
+    - I created a fixed number of 20 balls in the start and kept recycling them
     - More reduction in the number of batches
 1. **Code**: eliminated useless code and cached some variables<br />![Code](Screenshots/05-after-code.png)
     - There was a HUGE improvement in this step and the requirement of 90 FPS was met already!

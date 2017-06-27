@@ -7,7 +7,7 @@ public class BallSpawner : MonoBehaviour {
     public static BallSpawner current;
 
     public GameObject pooledBall; //the prefab of the object in the object pool
-    public int ballsAmount = 200; //the number of objects you want in the object pool. marcelo: raised from 20 to 200
+    public int ballsAmount = 20; //the number of objects you want in the object pool
     public List<GameObject> pooledBalls; //the object pool
     public static int ballPoolNum = 0; //a number used to cycle through the pooled objects
 
@@ -34,24 +34,6 @@ public class BallSpawner : MonoBehaviour {
 	        ballPoolNum = 0;
 	    }
 
-		// marcelo: the code below instantiates balls indefinitely, which is bad because the balls are never discarded and accumulates over time
-		// so at some point, the game WILL crash
-
-//		// if we’ve run out of objects in the pool too quickly, create a new one
-//	    if (pooledBalls[ballPoolNum].activeInHierarchy) {
-//	        // create a new bullet and add it to the bulletList
-//	        GameObject obj = Instantiate(pooledBall);
-//	        pooledBalls.Add(obj);
-//	        ballsAmount++;
-//	        ballPoolNum = ballsAmount - 1;
-//	    }
-
-		// marcelo: instead, I'll just raise the number of balls instantiated initially and keep recycling them
-		// we just have to be careful not to recycle a ball while they are still bouncing, so keeping a high initial count must do the trick
-		// and because the player will throw mainly the newly spawned balls, the older ones are (almost) guaranteed
-		// to be just rolling on the ground, unused and ready to be recycled
-
-//        Debug.Log(ballPoolNum);
         return pooledBalls[ballPoolNum];
 	}
    	
